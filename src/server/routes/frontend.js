@@ -10,6 +10,7 @@ module.exports = function frontendRoutes() {
     const router = express.Router();
 
     router.get('/', homeController.index);
+    require('../controllers/frontend/course')(router);
 
     return router;
 };

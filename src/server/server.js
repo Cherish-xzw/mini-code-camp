@@ -4,7 +4,7 @@ const
     express = require('express'),
     exphbs = require('express-handlebars'),
     path = require('path');
-    
+
 const
     routes = require('./routes');
 
