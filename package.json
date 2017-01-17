@@ -4,8 +4,11 @@
   "description": "learn programming by doing",
   "main": "index.js",
   "scripts": {
-    "start":"nodemon app.js",
-    "test": "mocha"
+    "start":"node app.js",
+    "client":"cd src\\client && npm run dev",
+    "server":"nodemon app.js",
+    "test": "mocha",
+    "build":"cd src\\client && npm run build"
   },
   "keywords": [
     "learn",
