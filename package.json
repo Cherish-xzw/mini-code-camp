@@ -4,11 +4,11 @@
   "description": "learn programming by doing",
   "main": "index.js",
   "scripts": {
-    "start":"node app.js",
-    "client":"cd src\\client && npm run dev",
-    "server":"nodemon app.js",
+    "start": "node app.js",
+    "client": "cd src\\client && npm run dev",
+    "server": "nodemon app.js",
     "test": "mocha",
-    "build":"cd src\\client && npm run build"
+    "build": "cd src\\client && npm run build"
   },
   "keywords": [
     "learn",
@@ -30,6 +30,7 @@
     "gulp-util": "^3.0.7",
     "jquery": "^3.1.1",
     "run-sequence": "^1.2.2",
+    "sequelize-auto": "^0.4.21",
     "should": "^11.1.2",
     "supertest": "^2.0.1",
     "webpack": "^1.13.3",
@@ -40,6 +41,8 @@
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
     "hbs": "^4.0.1",
-    "lodash": "^4.17.2"
+    "lodash": "^4.17.2",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.2"
   }
 }

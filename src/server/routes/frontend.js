@@ -11,6 +11,7 @@ module.exports = function frontendRoutes() {
 
     router.get('/', homeController.index);
     require('../controllers/frontend/course')(router);
+    require('../controllers/frontend/user')(router);
 
     return router;
 };

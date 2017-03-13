@@ -1,4 +1,4 @@
-const
+var
     request = require('supertest'),
     should = require('should'),
     app = require('../src/server/server');
