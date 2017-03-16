@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "client": "cd src\\client && npm run dev",
-    "server": "nodemon app.js",
+    "server": "nodemon app.js --watch src\\server",
     "test": "mocha",
     "build": "cd src\\client && npm run build"
   },
