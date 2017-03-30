@@ -24,6 +24,16 @@ function UserController(router){
         });
     });
 
+    router.post('/signin',function(req,res){
+        const userInfo = req.body;
+        userService.getUserByUsername(userInfo.username).then(function (user) {
+            if(!md5(userInfo.password) === user.password) throw new Error('密码错误！');
+            res.render('index');
+        }).catch(function(error){
+            res.status(500).json({error:error});
+        })
+    });
+
     router.get('/signin',function(req,res){
         res.render('signin');
     });
