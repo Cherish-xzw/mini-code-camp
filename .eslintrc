@@ -1,15 +1,15 @@
-{
-    "extends": "google",
-    "installedESLint": true,
-    "parserOptions": {
-        "ecmaVersion": 6
-    },
-    "env": {
-        "node": true
-    },
-    "rules": {
-        "no-unused-vars": "off",
-        "one-var": "off",
-        "space-before-function-paren": "off"
-    }
-}
+//{
+//    "extends": "google",
+//    "installedESLint": true,
+//    "parserOptions": {
+//        "ecmaVersion": 6
+//    },
+//    "env": {
+//        "node": true
+//    },
+//    "rules": {
+//        "no-unused-vars": "off",
+//        "one-var": "off",
+//        "space-before-function-paren": "off"
+//    }
+//}

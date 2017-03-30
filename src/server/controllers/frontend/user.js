@@ -2,6 +2,7 @@
  * Created by ACER on 2017/3/13.
  */
 
+const md5 = require('md5');
 const userService = require('../../service/user');
 
 function UserController(router){
@@ -10,6 +11,16 @@ function UserController(router){
         const id = req.params.id;
         userService.getUserById(id).then(function(user){
             res.json(user);
+        });
+    });
+
+    router.post('/user',function(req,res){
+        const userInfo = req.body;
+        userService.addUser(userInfo.username,md5(userInfo.password)).then(function(result){
+            if(!result) throw new Error('注册失败！');
+            res.render('index');
+        }).catch(function(error){
+            res.status(500).json({error:error});
         });
     });
 
