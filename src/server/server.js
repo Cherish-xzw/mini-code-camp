@@ -12,7 +12,7 @@ const
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.resolve(__dirname, '../built')));
+app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 

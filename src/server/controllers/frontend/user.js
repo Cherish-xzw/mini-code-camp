@@ -18,7 +18,7 @@ function UserController(router){
         const userInfo = req.body;
         userService.addUser(userInfo.username,md5(userInfo.password)).then(function(result){
             if(!result) throw new Error('注册失败！');
-            res.render('index');
+            res.render('signin');
         }).catch(function(error){
             res.status(500).json({error:error});
         });
@@ -28,7 +28,7 @@ function UserController(router){
         const userInfo = req.body;
         userService.getUserByUsername(userInfo.username).then(function (user) {
             if(!md5(userInfo.password) === user.password) throw new Error('密码错误！');
-            res.render('index');
+            res.render('course');
         }).catch(function(error){
             res.status(500).json({error:error});
         })

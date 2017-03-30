@@ -5,8 +5,8 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../../server/views/admin.hbs'),
-    assetsRoot: path.resolve(__dirname, '../../built'),
-    assetsSubDirectory: 'static',
+    assetsRoot: path.resolve(__dirname, '../../public/js'),
+    assetsSubDirectory: '/',
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
