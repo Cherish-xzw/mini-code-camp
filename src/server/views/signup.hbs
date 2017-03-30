@@ -31,17 +31,18 @@
                 $confirm.val() && $password.val() === $confirm.val() ?
                     $confirm.parent().removeClass('has-error') :
                     $confirm.parent().addClass('has-error');
-                return this;
+                return $username.val() && $password.val() && $confirm.val() && $password.val() === $confirm.val();
             },
             submit: function () {
                 $('#signup').submit();
-                return this;
             }
         };
 
         $(document).ready(function () {
             $('#signup_btn').click(function () {
-                form.validate().submit();
+                if (form.validate()) {
+                    form.submit();
+                }
             })
         });
 
