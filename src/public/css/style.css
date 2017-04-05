@@ -58,3 +58,30 @@ a{
   -o-transition: height 0.001s;
   transition: height 0.001s;
 }
+
+.editorScrollDiv {
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: 600px;
+}
+
+mainEditorPanel{
+    height:100%;
+    weight:99%;
+}
+
+.preview{
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: 600px;
+    border:1px solid;
+}
+
+iframe.iphone {
+    width: 280px;
+    height: 600px;
+    position: absolute;
+    top: 45px;
+    right: 35px;
+    overflow-y: scroll;
+}

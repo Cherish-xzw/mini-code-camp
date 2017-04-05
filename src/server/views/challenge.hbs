@@ -1,0 +1,83 @@
+<link href="//cdn.bootcss.com/codemirror/5.25.0/codemirror.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/codemirror/5.25.0/theme/monokai.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/codemirror/5.25.0/addon/lint/lint.min.css" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-lg-3">
+            <button class="btn btn-success" type="button">    Run Test </button>
+            <div class="output">
+                <form class="code">
+                    <textarea id="codeOutPut" style="display: none"></textarea>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-5 col-lg-6">
+            <div class="editorScrollDiv">
+                <div class="mainEditorPanel">
+                    <form class="code">
+                        <textarea id="code" name="code" style="display: none"> </textarea>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <div class="preview">
+                <iframe frameborder="0" id="preview" class="iphone"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/codemirror.min.js"></script>
+
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/css/css.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/htmlmixed/htmlmixed.min.js"></script>
+
+<script src="//cdn.bootcss.com/codemirror/5.25.0/addon/edit/matchbrackets.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/addon/lint/lint.min.js"></script>
+
+<script>
+    window.onload = function () {
+        var delay;
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lint: { esversion: 6 },
+            lineNumbers: true,
+            //mode: 'text/html',
+            mode: 'javascript',
+            theme: 'monokai',
+            runnable: true,
+            matchBrackets: true,
+            autoCloseBrackets: true,
+            scrollbarStyle: 'null',
+            lineWrapping: true,
+            gutters: ['CodeMirror-lint-markers']
+        });
+
+        editor.on("change", function () {
+            clearTimeout(delay);
+            delay = setTimeout(updatePreview, 300);
+        });
+
+        function updatePreview() {
+            var previewFrame = document.getElementById('preview');
+            var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+            preview.open();
+            preview.write(editor.getValue());
+            preview.close();
+        }
+        setTimeout(updatePreview, 300);
+
+        var output = CodeMirror.fromTextArea(document.getElementById("codeOutPut"), {
+            lineNumbers: false,
+            lineWrapping: true,
+            mode: 'javascript',
+            readOnly: 'nocursor',
+            theme: 'monokai'
+        });
+    }
+
+</script>
