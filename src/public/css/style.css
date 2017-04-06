@@ -21,7 +21,7 @@ a{
 
 .map-accordion {
     width:700px;
-    margin:155px auto 0;
+    margin:0 auto;
     position: relative;
 }
 
@@ -74,7 +74,6 @@ mainEditorPanel{
     overflow-y: auto;
     overflow-x:hidden;
     height: 600px;
-    border:1px solid;
 }
 
 iframe.iphone {
@@ -84,4 +83,13 @@ iframe.iphone {
     top: 45px;
     right: 35px;
     overflow-y: scroll;
+}
+
+.scroll-locker {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.button-spacer {
+    padding: 5px 0;
 }
