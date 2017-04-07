@@ -28,6 +28,10 @@ function UserController(router){
         const userInfo = req.body;
         userService.getUserByUsername(userInfo.username).then(function (user) {
             if(!md5(userInfo.password) === user.password) throw new Error('密码错误！');
+            res.cookie('user',JSON.stringify({
+                uid:user.id,
+                name:user.user_name
+            }));
             res.render('course');
         }).catch(function(error){
             res.status(500).json({error:error});

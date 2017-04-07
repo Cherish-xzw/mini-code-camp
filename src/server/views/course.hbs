@@ -1,32 +1,40 @@
 <div class="container-fluid">
-  <div class="jumbotron">
-    <h1>Hello, world!</h1>
-    <p>{{message}}</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-  </div>
+    <div class="jumbotron">
+        <h1>Hello, world!</h1>
+        <p>{{message}}</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </div>
 </div>
 <div class="container">
-  <div class="map-accordion" id="accordion">
-    <h2>
-      <a data-toggle="collapse" data-parent="#accordion" aria-expanded="false" class="collapsed" href="#collapse1">
-        <span class="no-link-underline"><i class="glyphicon glyphicon-triangle-right"></i></span> Front End Development Certification
-      </a>
-    </h2>
-    <div id="collapse1" class="collapse no-transition">
-      <div id="nested">
-        <h3>
-          <a data-toggle="collapse" data-parent="#nested" aria-expanded="false" href="#nested1">
-            <span class="no-link-underline"><i class="glyphicon glyphicon-triangle-right"></i></span> Join to Free Code Camp
-          </a>
-        </h3>
-        <div id="nested1" class="collapse chapterBlock">
-          <p>
-            <a href="/challenge/1">
-              Learn how Free Code Camp Works
-              </a>
-          </p>
+    {{#each blocks as |block superBlock|}}
+        <div class="map-accordion" id="accordion">
+            <h2>
+                <a data-toggle="collapse" data-parent="#accordion" aria-expanded="false" class="collapsed"
+                   href="#collapse{{superBlock}}">
+                    <span class="no-link-underline"><i class="glyphicon glyphicon-triangle-right"></i></span>
+                    {{superBlock}}
+                </a>
+            </h2>
+            <div id="collapse{{superBlock}}" class="collapse no-transition">
+                {{#each block as |subBlock|}}
+                    <div id="nested">
+                        <h3>
+                            <a data-toggle="collapse" data-parent="#nested" aria-expanded="false" href="#nested1">
+                                <span class="no-link-underline"><i
+                                    class="glyphicon glyphicon-triangle-right"></i></span>
+                                {{subBlock.title}}
+                            </a>
+                        </h3>
+                        <div id="nested1" class="collapse chapterBlock">
+                            <p>
+                                <a href="/challenge/1">
+                                    Learn how Free Code Camp Works
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+    {{/each}}
 </div>

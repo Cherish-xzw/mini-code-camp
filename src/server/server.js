@@ -7,11 +7,13 @@ const
     bodyParser = require('body-parser');
 
 const
-    routes = require('./routes');
+    routes = require('./routes'),
+    session = require('./middleware/session');
 
 const app = express();
 const port = 3000;
 
+app.use(session());
 app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
