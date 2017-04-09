@@ -8,6 +8,15 @@ a{
     text-decoration:none;
 }
 
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+textarea {
+    overflow: auto;
+}
+
 .container {
     min-height: 800px;
 }
@@ -17,6 +26,10 @@ a{
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.map-wrapper{
+    padding-bottom: 80px;
 }
 
 .map-accordion {
@@ -29,9 +42,7 @@ a{
     width:100%;
     display: block;
     background-color: #efefef;
-    padding:10px 0;
-    padding-left: 50px;
-    padding-right: 20px;
+    padding: 10px 20px 10px 50px;
 }
 
 .map-accordion h3 > a {
@@ -59,15 +70,43 @@ a{
   transition: height 0.001s;
 }
 
-.editorScrollDiv {
-    overflow-y: auto;
-    overflow-x:hidden;
-    height: 600px;
+form.code span {
+    font-size: 18px;
+    font-family: "Ubuntu Mono";
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    height: 100%;
 }
-
-mainEditorPanel{
-    height:100%;
-    weight:99%;
+.CodeMirror {
+    line-height: 1 !important;
+    height: 800px !important;
+}
+.CodeMirror-linenumber {
+    font-size: 18px;
+    font-family: "Ubuntu Mono";
+}
+#mainEditorPanel {
+    height: 100%;
+    width: 99%;
+}
+.scroll-locker {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#mainEditorPanel .panel-body {
+    padding-bottom: 0px;
+}
+div.CodeMirror-scroll {
+    padding-bottom: 30px;
+}
+.test-vertical-center {
+    margin-top: 8px;
+}
+.cm-s-monokai.CodeMirror {
+    border-radius: 5px;
+}
+.courseware-height {
+    min-height: 650px;
 }
 
 .preview{
@@ -77,12 +116,9 @@ mainEditorPanel{
 }
 
 iframe.iphone {
-    width: 280px;
-    height: 600px;
-    position: absolute;
-    top: 45px;
-    right: 35px;
-    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .scroll-locker {

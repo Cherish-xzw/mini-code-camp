@@ -12,9 +12,13 @@ function CourseController(router) {
      * 课程列表
      */
     router.get('/course', function (req, res) {
-        Block.find(function (err, blocks) {
-            res.render('course', {blocks: _.groupBy(blocks, 'superBlock')});
-        });
+        Block
+            .find()
+            .sort('superOrder')
+            .sort('order')
+            .then(blocks => {
+                res.render('course', {blocks: _.groupBy(blocks, 'superBlock')});
+            });
     });
 
     /**
