@@ -28,8 +28,8 @@ app.engine('hbs', exphbs({
 }));
 
 app.use(routes.frontend());
-app.use(routes.api());
-app.use(routes.admin());
+app.use('/api',routes.api());
+app.use('/admin',routes.admin());
 
 app.listen(port);
 console.log(`app started at port ${port}!`);

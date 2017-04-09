@@ -3,7 +3,7 @@
  */
 const
     db = require('../config').db,
-    userModel = '../schema/user';
+    userModel = '../model/user';
 
 const User = db.import(userModel);
 

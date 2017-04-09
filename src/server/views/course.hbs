@@ -19,22 +19,48 @@
                 {{#each block as |subBlock|}}
                     <div id="nested">
                         <h3>
-                            <a data-toggle="collapse" data-parent="#nested" aria-expanded="false" href="#nested1">
+                            <a data-toggle="collapse" data-parent="#nested" aria-expanded="false" href="#nested{{subBlock._id}}"
+                               class="subBlock"
+                               data-id="{{subBlock._id}}">
                                 <span class="no-link-underline"><i
                                     class="glyphicon glyphicon-triangle-right"></i></span>
                                 {{subBlock.title}}
                             </a>
                         </h3>
-                        <div id="nested1" class="collapse chapterBlock">
-                            <p>
-                                <a href="/challenge/1">
-                                    Learn how Free Code Camp Works
-                                </a>
-                            </p>
-                        </div>
+                        <div id="nested{{subBlock._id}}" class="collapse chapterBlock"></div>
                     </div>
                 {{/each}}
             </div>
         </div>
     {{/each}}
 </div>
+<script id="challenges" type="text/x-handlebars-template">
+    \{{#each this}}
+    <p>
+        <a href="/challenge/\{{_id}}">
+            <span class="no-link-underline"><i
+                class="glyphicon glyphicon-play-circle"></i></span>
+            \{{title}}
+        </a>
+    </p>
+    \{{/each}}
+</script>
+<script>
+    (function () {
+
+        $(document).ready(function () {
+
+            $('.subBlock').click(function () {
+                var blockId = $(this).attr('data-id');
+                $.ajax('/api/blocks/' + blockId + '/challenges').done(function (data) {
+                    var template = Handlebars.compile($('#challenges').html());
+                    var html = template(data);
+                    $('#nested'+blockId).html(html);
+                });
+            });
+
+
+        });
+
+    })();
+</script>

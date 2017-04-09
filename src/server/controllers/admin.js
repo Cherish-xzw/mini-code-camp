@@ -5,7 +5,7 @@
  * @param {object} router A express router
  */
 function AdminController(router) {
-    router.get('/admin', function (req, res) {
+    router.get('/', function (req, res) {
         res.render('admin', {
             layout: false,
         });
