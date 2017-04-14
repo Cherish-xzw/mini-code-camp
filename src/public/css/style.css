@@ -110,8 +110,6 @@ div.CodeMirror-scroll {
 }
 
 .preview{
-    overflow-y: auto;
-    overflow-x:hidden;
     height: 600px;
 }
 

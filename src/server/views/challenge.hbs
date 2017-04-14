@@ -2,6 +2,7 @@
 <link href="//cdn.bootcss.com/codemirror/5.25.0/theme/monokai.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/codemirror/5.25.0/addon/lint/lint.min.css" rel="stylesheet">
 <div class="container-fluid">
+    <input value="{{challenge.challengeType}}" type="hidden" id="challengeType"/>
     <div class="row">
         <div class="col-md-3 col-lg-3">
             <div id="scroll-locker" class="scroll-locker" style="min-height: 306px; height: 800px;">
@@ -30,6 +31,19 @@
             </div>
             <div class="button-spacer"></div>
         </div>
+        {{#if challenge.challengeType}}
+        <div class="col-md-9 col-lg-9">
+            <div class="editorScrollDiv">
+                <div id="mainEditorPanel">
+                    <form class="code">
+                        <div class="codeMirrorView">
+                            <textarea id="code" autofocus=""  name="code" style="display: none;">{{#each challenge.challengeSeed}}{{this}}&#10;{{/each}}</textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{else}}
         <div class="col-md-5 col-lg-6">
             <div class="editorScrollDiv">
                 <div id="mainEditorPanel">
@@ -48,6 +62,8 @@
                 </div>
             </div>
         </div>
+        {{/if}}
+        
     </div>
 </div>
 

@@ -4,11 +4,11 @@
 (function () {
     $(document).ready(function () {
         var delay;
+        var challengeType = $("#challengeType").val();
         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             lint: { esversion: 6 },
             lineNumbers: true,
-            mode: 'text/html',
-            //            mode: 'javascript',
+            mode:challengeType === '0' ? 'text/html' : 'javascript',
             theme: 'monokai',
             runnable: true,
             matchBrackets: true,
