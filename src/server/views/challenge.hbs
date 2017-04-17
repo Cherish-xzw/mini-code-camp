@@ -24,10 +24,16 @@
                     </button>
                     <div class="button-spacer"></div>
                     <div class="button-spacer"></div>
+                    {{#if challenge.challengeType}}
+                    <div class="output-view">
+                        <textarea id="output" autofocus=""  name="output" style="display: none;">console.log('this is output')</textarea>
+                    </div>
+                    {{/if}}
                     <div id="testSuite">
 
                     </div>
-                    <br></div>
+                    <br>
+                    </div>
             </div>
             <div class="button-spacer"></div>
         </div>
@@ -43,6 +49,7 @@
                 </div>
             </div>
         </div>
+        <iframe frameborder="0" id="preview" class="iphone" style="display:none"></iframe>
         {{else}}
         <div class="col-md-5 col-lg-6">
             <div class="editorScrollDiv">
@@ -81,12 +88,17 @@
     </div>
 </script>
 
+<script src="//cdn.bootcss.com/jshint/2.9.4/jshint.min.js"></script>
+<script src="//cdn.bootcss.com/chai/4.0.0-canary.1/chai.min.js"></script>
 <script src="//cdn.bootcss.com/codemirror/5.25.0/codemirror.min.js"></script>
-<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/xml/xml.min.js"></script>
-<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/javascript/javascript.min.js"></script>
-<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/css/css.min.js"></script>
-<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/addon/comment/comment.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/addon/edit/closebrackets.min.js"></script>
 <script src="//cdn.bootcss.com/codemirror/5.25.0/addon/edit/matchbrackets.min.js"></script>
 <script src="//cdn.bootcss.com/codemirror/5.25.0/addon/lint/lint.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/addon/lint/javascript-lint.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/css/css.min.js"></script>
+<script src="//cdn.bootcss.com/codemirror/5.25.0/mode/htmlmixed/htmlmixed.min.js"></script>
 
 <script src="/js/challenge.js"></script>

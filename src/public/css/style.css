@@ -79,7 +79,7 @@ form.code span {
 }
 .CodeMirror {
     line-height: 1 !important;
-    height: 800px !important;
+    height: auto !important;
 }
 .CodeMirror-linenumber {
     font-size: 18px;
