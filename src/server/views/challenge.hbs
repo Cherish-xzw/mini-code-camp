@@ -26,11 +26,28 @@
                     <div class="button-spacer"></div>
                     {{#if challenge.challengeType}}
                     <div class="output-view">
-                        <textarea id="output" autofocus=""  name="output" style="display: none;">console.log('this is output')</textarea>
+                        <textarea id="output" autofocus=""  name="output" style="display: none;">
+                            /**
+                                * Your output will go here.
+                                * Any console.log() statements
+                                * will appear in here as well.
+                            */
+                        </textarea>
                     </div>
                     {{/if}}
+                    <div class="button-spacer"></div>
                     <div id="testSuite">
-
+                        {{#each tests }}
+                            <div class="row">
+                                <div class="col-xs-2 text-center">
+                                    <i class="glyphicon glyphicon-remove" style="color:red"></i>
+                                </div>
+                                <div class="col-xs-10 test-output">
+                                    {{{this.text}}}
+                                </div>
+                                <div class="ten-pixel-break"></div>
+                            </div>
+                        {{/each}}
                     </div>
                     <br>
                     </div>
@@ -70,11 +87,11 @@
             </div>
         </div>
         {{/if}}
-        
+
     </div>
 </div>
 
-<script id="error" type="text/x-handlebars-template">        
+<script id="error" type="text/x-handlebars-template">
     <div>
         <div class="row">
             <div class="col-xs-2 text-center">
