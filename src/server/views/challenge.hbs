@@ -1,8 +1,15 @@
 <link href="//cdn.bootcss.com/codemirror/5.25.0/codemirror.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/codemirror/5.25.0/theme/monokai.min.css" rel="stylesheet">
 <link href="//cdn.bootcss.com/codemirror/5.25.0/addon/lint/lint.min.css" rel="stylesheet">
+
+<script>
+    window.__state__ = {
+        challengeType:{{challenge.challengeType}},
+        tests:{{{json tests}}}
+    }
+</script>
+
 <div class="container-fluid">
-    <input value="{{challenge.challengeType}}" type="hidden" id="challengeType"/>
     <div class="row">
         <div class="col-md-3 col-lg-3">
             <div id="scroll-locker" class="scroll-locker" style="min-height: 306px; height: 800px;">
@@ -90,20 +97,6 @@
 
     </div>
 </div>
-
-<script id="error" type="text/x-handlebars-template">
-    <div>
-        <div class="row">
-            <div class="col-xs-2 text-center">
-                <i class="glyphicon glyphicon-remove"></i>
-            </div>
-            <div class="col-xs-10 test-output">
-                \{{message}}
-            </div>
-            <div class="ten-pixel-break"></div>
-        </div>
-    </div>
-</script>
 
 <script src="//cdn.bootcss.com/jshint/2.9.4/jshint.min.js"></script>
 <script src="//cdn.bootcss.com/chai/4.0.0-canary.1/chai.min.js"></script>

@@ -16,7 +16,7 @@ const port = 3000;
 app.use(session());
 app.use(express.static(path.resolve(__dirname, '../public')));
 app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
@@ -25,11 +25,16 @@ app.engine('hbs', exphbs({
     layoutsDir: __dirname + '/views/layouts/',
     defaultLayout: 'layout',
     extname: '.hbs',
+    helpers: {
+        json: function (context) {
+            return JSON.stringify(context);
+        }
+    }
 }));
 
 app.use(routes.frontend());
-app.use('/api',routes.api());
-app.use('/admin',routes.admin());
+app.use('/api', routes.api());
+app.use('/admin', routes.admin());
 
 app.listen(port);
 console.log(`app started at port ${port}!`);
