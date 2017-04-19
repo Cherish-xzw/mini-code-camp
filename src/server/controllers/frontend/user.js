@@ -5,50 +5,67 @@
 const md5 = require('md5');
 const userService = require('../../service/user');
 
-function UserController(router){
+function UserController(router) {
 
-    router.get('/user/:id',function(req,res){
+    router.get('/user/:id', function (req, res) {
         const id = req.params.id;
-        userService.getUserById(id).then(function(user){
+        userService.getUserById(id).then(function (user) {
             res.json(user);
         });
     });
 
-    router.post('/user',function(req,res){
+    router.post('/user', function (req, res) {
         const userInfo = req.body;
-        userService.addUser(userInfo.username,md5(userInfo.password)).then(function(result){
-            if(!result) throw new Error('注册失败！');
+        userService.addUser(userInfo.username, md5(userInfo.password)).then(function (result) {
+            if (!result) throw new Error('注册失败！');
             res.render('signin');
-        }).catch(function(error){
-            res.status(500).json({error:error});
+        }).catch(function (error) {
+            res.status(500).json({error: error});
         });
     });
 
-    router.post('/signin',function(req,res){
+    router.post('/signin', function (req, res) {
         const userInfo = req.body;
         userService.getUserByUsername(userInfo.username).then(function (user) {
-            if(!md5(userInfo.password) === user.password) throw new Error('密码错误！');
-            res.cookie('user',JSON.stringify({
-                uid:user.id,
-                name:user.user_name
+            if(!user){
+                res.render('signin',{
+                    message:'用户不存在！'
+                });
+                return ;
+            }
+            if (!(md5(userInfo.password) === user.password)) {
+                res.render('signin',{
+                    message:'密码错误！'
+                });
+                return ;
+            }
+            res.cookie('user', JSON.stringify({
+                uid: user.id,
+                name: user.user_name
             }));
-            res.render('course');
-        }).catch(function(error){
-            res.status(500).json({error:error});
+            res.redirect('course');
+        }).catch(function (error) {
+            res.render('signin');
         })
+    });
+
+    router.get('/logout',function(req,res){
+        req.session.destroy();
+        res.cookie('user',null,{maxAge:0});
+        res.render('index');
     });
 
     /**
      * 登录页面
      */
-    router.get('/signin',function(req,res){
+    router.get('/signin', function (req, res) {
         res.render('signin');
     });
 
     /**
      * 注册页面
      */
-    router.get('/signup',function(req,res){
+    router.get('/signup', function (req, res) {
         res.render('signup')
     });
 
