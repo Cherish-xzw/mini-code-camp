@@ -11,7 +11,7 @@ const
     session = require('./middleware/session');
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(session());
 app.use(express.static(path.resolve(__dirname, '../public')));

@@ -2,10 +2,9 @@ html, body, div, span, a, li, td, th {
     font-family: '微软雅黑', 'Lato', sans-serif;
 }
 
-a{
-    font-weight: bold;
+a {
     cursor: hand;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 form {
@@ -28,18 +27,22 @@ textarea {
     margin-right: auto;
 }
 
-.map-wrapper{
-    padding-bottom: 80px;
+.map-wrapper {
+    padding-top: 80px;
+}
+
+.map-wrapper a {
+    font-weight: bold;
 }
 
 .map-accordion {
-    width:700px;
-    margin:0 auto;
+    width: 700px;
+    margin: 0 auto;
     position: relative;
 }
 
 .map-accordion h2 > a {
-    width:100%;
+    width: 100%;
     display: block;
     background-color: #efefef;
     padding: 10px 20px 10px 50px;
@@ -56,18 +59,18 @@ textarea {
     margin-bottom: 30px;
 }
 
-.map-accordion div.chapterBlock p{
+.map-accordion div.chapterBlock p {
     text-indent: -15px;
     margin-left: 120px;
     padding-right: 20px;
 }
 
 .no-transition {
-  -webkit-transition: height 0.001s;
-  -moz-transition: height 0.001s;
-  -ms-transition: height 0.001s;
-  -o-transition: height 0.001s;
-  transition: height 0.001s;
+    -webkit-transition: height 0.001s;
+    -moz-transition: height 0.001s;
+    -ms-transition: height 0.001s;
+    -o-transition: height 0.001s;
+    transition: height 0.001s;
 }
 
 form.code span {
@@ -77,39 +80,48 @@ form.code span {
     margin-bottom: 0px;
     height: 100%;
 }
+
 .CodeMirror {
     line-height: 1 !important;
     height: auto !important;
 }
+
 .CodeMirror-linenumber {
     font-size: 18px;
     font-family: "Ubuntu Mono";
 }
+
 #mainEditorPanel {
     height: 100%;
     width: 99%;
 }
+
 .scroll-locker {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
 #mainEditorPanel .panel-body {
     padding-bottom: 0px;
 }
+
 div.CodeMirror-scroll {
     padding-bottom: 30px;
 }
+
 .test-vertical-center {
     margin-top: 8px;
 }
+
 .cm-s-monokai.CodeMirror {
     border-radius: 5px;
 }
+
 .courseware-height {
     min-height: 650px;
 }
 
-.preview{
+.preview {
     height: 600px;
 }
 
@@ -126,4 +138,33 @@ iframe.iphone {
 
 .button-spacer {
     padding: 5px 0;
+}
+
+.slogan {
+    font-size: 70px;
+    color: white;
+    padding-top: 100px
+}
+
+.first {
+    background-color: #6f5499;
+    height: 400px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+}
+
+.banner {
+    background-color: #FFF;
+    text-align: center;
+}
+
+.footer {
+    color: #FFF;
+    background-color: #2a2730;
+    height: 300px;
+    padding-top: 100px
+}
+
+.big-btn {
+    color: #FFF;
+    background-color: transparent;
 }
