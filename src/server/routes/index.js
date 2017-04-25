@@ -1,10 +1,8 @@
 const
     frontend = require('./frontend'),
-    api = require('./api'),
-    admin = require('./admin');
+    api = require('./api');
 
 module.exports = {
-    admin: admin,
     frontend: frontend,
     api: api,
 };

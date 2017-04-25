@@ -34,9 +34,9 @@ app.engine('hbs', exphbs({
 
 app.use(routes.frontend());
 app.use('/api', routes.api());
-app.use('/admin', routes.admin());
 
-app.listen(port);
-console.log(`app started at port ${port}!`);
+app.listen(port,() => {
+    console.log(`app started at port ${port}!`);
+});
 
 module.exports = app;

@@ -3,15 +3,15 @@
 const
     express = require('express');
 
-const homeController = require('../controllers/frontend/home');
+const homeController = require('../controllers/home');
 
 module.exports = function frontendRoutes() {
     /* eslint new-cap :off */
     const router = express.Router();
 
     router.get('/', homeController.index);
-    require('../controllers/frontend/course')(router);
-    require('../controllers/frontend/user')(router);
+    require('../controllers/course')(router);
+    require('../controllers/user')(router);
 
     return router;
 };

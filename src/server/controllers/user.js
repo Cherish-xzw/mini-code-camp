@@ -3,7 +3,7 @@
  */
 
 const md5 = require('md5');
-const userService = require('../../service/user');
+const userService = require('../service/user');
 
 function UserController(router) {
 

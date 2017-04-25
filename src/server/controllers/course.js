@@ -3,10 +3,10 @@
  * @param {object} router
  */
 const _ = require('lodash');
-const Block = require('../../model/block');
-const Challenge = require('../../model/challenge');
+const Block = require('../model/block');
+const Challenge = require('../model/challenge');
 
-const util = require('../../utils');
+const util = require('../utils/index');
 
 function CourseController(router) {
 

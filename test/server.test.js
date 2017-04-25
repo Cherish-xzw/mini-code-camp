@@ -1,7 +1,7 @@
 var
     request = require('supertest'),
     should = require('should'),
-    app = require('../src/server/server');
+    app = require('../src/server/index');
 
 describe('server.js', function () {
     before(function (done) {
