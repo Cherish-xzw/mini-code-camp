@@ -17,6 +17,7 @@ const paths = {
   ],
   css: './src/public/css',
   sass: './src/client/sass/main.scss',
+  sassFiles: './src/client/sass/**/*.scss',
   publicJs: './src/public/js',
   js: [
     './src/client/js/main.js',
@@ -28,7 +29,8 @@ gulp.task('lint', () => {
   const eslint = $.eslint;
   return gulp.src(['**/*.js'])
     .pipe(eslint())
-    .pipe(eslint.format());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('sass', () => {
@@ -43,7 +45,7 @@ gulp.task('js', () => {
     .pipe(gulp.dest(paths.publicJs));
 });
 
-gulp.task('server', () => {
+gulp.task('server', ['lint'], () => {
   const nodemon = $.nodemon;
   nodemon({
     script: paths.server,
@@ -61,8 +63,8 @@ gulp.task('server', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.sassFiles, ['sass']);
   gulp.watch(paths.js, ['js']);
 });
 
-gulp.task('default', ['sass', 'js', 'server', 'watch']);
+gulp.task('default', ['server', 'sass', 'js', 'watch']);

@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-
   var assert = chai.assert;
 
   document.__runTests = function (tests) {
@@ -18,6 +17,5 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error(e);
       }
     });
-  }
-
+  };
 });

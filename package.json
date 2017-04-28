@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js --watch src\\server",
-    "test": "mocha"
+    "dev": "gulp",
+    "test": "mocha",
+    "lint": "gulp lint"
   },
   "keywords": [
     "learn",
