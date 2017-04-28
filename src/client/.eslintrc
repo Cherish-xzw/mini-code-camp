@@ -2,12 +2,15 @@
   "extends": "google",
   "installedESLint": true,
   "parserOptions": {
-    "ecmaVersion": 6
+    "ecmaVersion": 5
   },
   "env": {
-    "node": true
+    "browser": true
   },
   "rules": {
+    "max-len": "off",
+    "no-var": "off",
+    "no-undef": "off",
     "no-unused-vars": "off",
     "one-var": "off",
     "space-before-function-paren": "off",

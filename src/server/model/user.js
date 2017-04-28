@@ -1,6 +1,5 @@
-/* jshint indent: 2 */
-
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
+  /* eslint new-cap: off */
   return sequelize.define('user', {
     id: {
       type: DataTypes.INTEGER(11),

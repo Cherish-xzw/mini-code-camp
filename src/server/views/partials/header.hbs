@@ -39,7 +39,6 @@
     (function(){
         try {
             var user = JSON.parse(getCookie('user'));
-            console.log(user)
             if(user){
                 $('#nav').append('<li><a href="javascript:;" class="text-danger">'+user.name+'</a></li>')
                 $('#nav').append('<li><a href="/logout">登出</a></li>')

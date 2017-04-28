@@ -1,0 +1,17 @@
+html, body, div, span, a, li, td, th {
+  font-family: '微软雅黑', 'Lato', sans-serif;
+}
+
+a {
+  cursor: hand;
+  text-decoration: none;
+}
+
+form {
+  display: block;
+  margin-top: 0em;
+}
+
+textarea {
+  overflow: auto;
+}
