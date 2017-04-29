@@ -1,12 +1,5 @@
-const
-  gulp = require('gulp'),
-  $ = require('gulp-load-plugins')(),
-  webpack = require('webpack'),
-  WebpackDevServer = require('webpack-dev-server'),
-  webpackConfig = require('./webpack.config.js'),
-  runSequence = require('run-sequence').use(gulp),
-  exec = require('child_process').exec,
-  debug = require('debug');
+const gulp = require('gulp');
+const $ = require('gulp-load-plugins')();
 
 const paths = {
   server: 'src/server/index.js',
@@ -19,10 +12,7 @@ const paths = {
   sass: './src/client/sass/main.scss',
   sassFiles: './src/client/sass/**/*.scss',
   publicJs: './src/public/js',
-  js: [
-    './src/client/js/main.js',
-    './src/client/js/frame-runner.js',
-  ]
+  js: './src/client/js/**/*.js'
 };
 
 gulp.task('lint', () => {
@@ -41,7 +31,9 @@ gulp.task('sass', () => {
 });
 
 gulp.task('js', () => {
+  const uglify = $.uglify;
   return gulp.src(paths.js)
+    .pipe(uglify())
     .pipe(gulp.dest(paths.publicJs));
 });
 
@@ -57,7 +49,7 @@ gulp.task('server', ['lint'], () => {
     }
   }).on('restart', (files) => {
     if (files) {
-      debug('Nodemon will restart due to changes in: ', files);
+      console.log('Nodemon will restart due to changes in: ', files);
     }
   });
 });

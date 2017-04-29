@@ -37,7 +37,7 @@ app.use(routes.frontend());
 app.use('/api', routes.api());
 
 app.listen(port, () => {
-  console.log(`app started at port ${port}!`);
+  console.log(`app started at http://localhost:${port}`);
 });
 
 module.exports = app;

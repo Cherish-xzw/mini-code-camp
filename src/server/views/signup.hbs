@@ -1,50 +1,20 @@
 <div class="container">
-    <div class="col-md-4 col-md-offset-4 login" align="center">
-        <h1>账户注册</h1>
-        <form action="/user" method="POST" id="signup">
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="用户名" name="username" id="username"
-                       data-rule="required;"/>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="password" placeholder="密码" name="password" id="password"/>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="password" placeholder="确认密码" name="confirm" id="confirm"/>
-            </div>
-            <div class="form-group">
-                <button type="button" class="form-control btn btn-primary" id="signup_btn">注册</button>
-            </div>
-        </form>
-    </div>
+	<div class="col-md-4 col-md-offset-4 login" align="center">
+		<h1>账户注册</h1>
+		<form action="/user" method="POST" id="signup">
+			<div class="form-group">
+				<input class="form-control" type="text" placeholder="用户名" name="username" id="username" data-rule="required;" />
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="password" placeholder="密码" name="password" id="password" />
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="password" placeholder="确认密码" name="confirm" id="confirm" />
+			</div>
+			<div class="form-group">
+				<button type="button" class="form-control btn btn-primary" id="signup_btn">注册</button>
+			</div>
+		</form>
+	</div>
 </div>
-<script>
-    (function () {
-
-        var form = {
-            validate: function () {
-                var $username = $('#username'),
-                    $password = $('#password'),
-                    $confirm = $('#confirm');
-                $username.val() ? $username.parent().removeClass('has-error') : $username.parent().addClass('has-error');
-                $password.val() ? $password.parent().removeClass('has-error') : $password.parent().addClass('has-error');
-                $confirm.val() && $password.val() === $confirm.val() ?
-                    $confirm.parent().removeClass('has-error') :
-                    $confirm.parent().addClass('has-error');
-                return $username.val() && $password.val() && $confirm.val() && $password.val() === $confirm.val();
-            },
-            submit: function () {
-                $('#signup').submit();
-            }
-        };
-
-        $(document).ready(function () {
-            $('#signup_btn').click(function () {
-                if (form.validate()) {
-                    form.submit();
-                }
-            })
-        });
-
-    })();
-</script>
+<script src="/js/signup.js"></script>
