@@ -1,10 +1,10 @@
 $(document).ready(function () {
     $('.subBlock').click(function () {
-        var blockId = $(this).attr('data-id');
+        let blockId = $(this).attr('data-id');
         $.ajax('/api/blocks/' + blockId + '/challenges').done(function (data) {
-            var template = Handlebars.compile($('#challenges').html());
-            var html = template(data);
-            $('#nested'+blockId).html(html);
+            let template = Handlebars.compile($('#challenges').html());
+            let html = template(data);
+            $('#nested' + blockId).html(html);
         });
     });
 });

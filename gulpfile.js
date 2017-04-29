@@ -32,7 +32,9 @@ gulp.task('sass', () => {
 
 gulp.task('js', () => {
   const uglify = $.uglify;
+  const babel = $.babel;
   return gulp.src(paths.js)
+    .pipe(babel())
     .pipe(uglify())
     .pipe(gulp.dest(paths.publicJs));
 });
@@ -46,10 +48,6 @@ gulp.task('server', ['lint'], () => {
     env: {
       NODE_ENV: process.env.NODE_ENV || 'development',
       DEBUG: process.env.DEBUG || 'mcc:*',
-    }
-  }).on('restart', (files) => {
-    if (files) {
-      console.log('Nodemon will restart due to changes in: ', files);
     }
   });
 });

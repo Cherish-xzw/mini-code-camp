@@ -1,8 +1,8 @@
-$(document).ready(function () {
-    var delay;
-    var challengeType = window.__state__.challengeType;
-    var tests = window.__state__.tests;
-    var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+$(document).ready(() => {
+    let delay;
+    let challengeType = window.__state__.challengeType;
+    let tests = window.__state__.tests;
+    let editor = CodeMirror.fromTextArea(document.getElementById('code'), {
         lint: {esversion: 6},
         lineNumbers: true,
         mode: challengeType === 0 ? 'text/html' : 'javascript',
@@ -13,14 +13,14 @@ $(document).ready(function () {
         lineWrapping: true,
         gutters: ['CodeMirror-lint-markers']
     });
-    editor.on('change', function () {
+    editor.on('change', () => {
         clearTimeout(delay);
         delay = setTimeout(updatePreview, 300);
     });
     setTimeout(updatePreview, 300);
     function updatePreview() {
-        var previewFrame = document.getElementById('preview');
-        var preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+        let previewFrame = document.getElementById('preview');
+        let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
         preview.open();
         preview.write('<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>');
         preview.write('<script src="//cdn.bootcss.com/chai/4.0.0-canary.1/chai.min.js"></script>');
@@ -37,12 +37,12 @@ $(document).ready(function () {
     }
 
     $('#submitButton').click(function () {
-        var previewFrame = document.getElementById('preview');
-        var frame = previewFrame.contentDocument || previewFrame.contentWindow.document;
+        let previewFrame = document.getElementById('preview');
+        let frame = previewFrame.contentDocument || previewFrame.contentWindow.document;
         frame.__runTests(tests);
     });
 
-    var output = CodeMirror.fromTextArea(document.getElementById('output'), {
+    let output = CodeMirror.fromTextArea(document.getElementById('output'), {
         lineNumbers: false,
         lineWrapping: true,
         mode: 'javascript',
