@@ -1,4 +1,3 @@
-
 function createTests(tests) {
   return tests
     .map((test) => {

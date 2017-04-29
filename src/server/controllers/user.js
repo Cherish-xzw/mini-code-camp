@@ -52,16 +52,12 @@ function UserController(router) {
     res.render('index');
   });
 
-  /**
-   * 登录页面
-   */
+  // 登录页面
   router.get('/signin', function (req, res) {
     res.render('signin');
   });
 
-  /**
-   * 注册页面
-   */
+  // 注册页面
   router.get('/signup', function (req, res) {
     res.render('signup');
   });

@@ -1,7 +1,4 @@
-
-function HomeController() {
-
-}
+function HomeController() {}
 
 HomeController.prototype.index = function (req, res) {
   res.render('index', {

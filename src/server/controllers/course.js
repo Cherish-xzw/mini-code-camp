@@ -1,13 +1,10 @@
 const _ = require('lodash');
 const Block = require('../model/block');
 const Challenge = require('../model/challenge');
-
-const util = require('../utils/index');
+const util = require('../utils');
 
 function CourseController(router) {
-  /**
-   * 课程列表
-   */
+   // 课程列表
   router.get('/course', function (req, res) {
     Block
       .find()
@@ -21,9 +18,7 @@ function CourseController(router) {
       });
   });
 
-  /**
-   * 课程详情
-   */
+  // 课程详情
   router.get('/challenge/:id', function (req, res) {
     Challenge.findById(req.params.id).then((challenge) => {
       res.render('challenge', {

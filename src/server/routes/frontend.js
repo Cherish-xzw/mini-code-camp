@@ -1,8 +1,4 @@
-'use strict';
-
-const
-  express = require('express');
-
+const express = require('express');
 const homeController = require('../controllers/home');
 
 module.exports = function frontendRoutes() {
