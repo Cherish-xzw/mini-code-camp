@@ -15,7 +15,7 @@ const app = express();
 const port = 4000;
 
 app.use(session());
-app.use(express.static(path.resolve(__dirname, '../public')));
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 

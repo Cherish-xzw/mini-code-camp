@@ -5,13 +5,13 @@ const paths = {
   server: 'src/server/index.js',
   serverIgnore: [
     'gulpfile.js',
-    'src/public/',
+    'src/server/public/',
     'src/client/'
   ],
-  css: './src/public/css',
+  css: './src/server/public/css',
   sass: './src/client/sass/main.scss',
   sassFiles: './src/client/sass/**/*.scss',
-  publicJs: './src/public/js',
+  publicJs: './src/server/public/js',
   js: './src/client/js/**/*.js'
 };
 
@@ -25,17 +25,27 @@ gulp.task('lint', () => {
 
 gulp.task('sass', () => {
   const sass = $.sass;
+  const cleanCss = $.cleanCss;
+  const sourcemaps = $.sourcemaps;
   return gulp.src(paths.sass)
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.identityMap())
     .pipe(sass().on('error', sass.logError))
+    .pipe(cleanCss())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.css));
 });
 
 gulp.task('js', () => {
   const uglify = $.uglify;
   const babel = $.babel;
+  const sourcemaps = $.sourcemaps;
   return gulp.src(paths.js)
+    .pipe(sourcemaps.init())
+    .pipe(sourcemaps.identityMap())
     .pipe(babel())
     .pipe(uglify())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.publicJs));
 });
 

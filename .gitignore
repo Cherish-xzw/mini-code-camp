@@ -47,5 +47,5 @@ jspm_packages
 .yarn-integrity
 
 .idea/
-src/public/js
-src/public/css
+src/server/public/js
+src/server/public/css
