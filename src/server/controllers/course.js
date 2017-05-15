@@ -12,7 +12,7 @@ function CourseController(router) {
       .sort('order')
       .then((blocks) => {
         res.render('course', {
-          title: '课程列表 - Code Camp',
+          title: '课程列表',
           blocks: _.groupBy(blocks, 'superBlock')
         });
       });
@@ -22,7 +22,7 @@ function CourseController(router) {
   router.get('/challenge/:id', function (req, res) {
     Challenge.findById(req.params.id).then((challenge) => {
       res.render('challenge', {
-        title: '课程详情 - Code Camp',
+        title: '课程详情',
         challenge: challenge,
         tests: util.createTests(challenge.tests)
       });

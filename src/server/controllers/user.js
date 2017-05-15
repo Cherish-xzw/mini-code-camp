@@ -14,10 +14,14 @@ function UserController(router) {
     userService.addUser(userInfo.username, md5(userInfo.password))
       .then(function (result) {
         if (!result) throw new Error('注册失败！');
-        res.render('signin');
+        res.render('signup', {
+          title: '注册'
+        });
       }).catch(function (error) {
-      res.status(500).json({error: error});
-    });
+        res.status(500).json({
+          error: error
+        });
+      });
   });
 
   router.post('/signin', function (req, res) {
@@ -42,24 +46,32 @@ function UserController(router) {
         }));
         res.redirect('course');
       }).catch(function (error) {
-      res.render('signin');
-    });
+        res.render('signin', {
+          title: '登录'
+        });
+      });
   });
 
   router.get('/logout', function (req, res) {
     req.session.destroy();
-    res.cookie('user', null, {maxAge: 0});
-    res.render('index');
+    res.cookie('user', null, {
+      maxAge: 0
+    });
+    res.redirect('/');
   });
 
   // 登录页面
   router.get('/signin', function (req, res) {
-    res.render('signin');
+    res.render('signin', {
+      title: '登录'
+    });
   });
 
   // 注册页面
   router.get('/signup', function (req, res) {
-    res.render('signup');
+    res.render('signup', {
+      title: '注册'
+    });
   });
 }
 

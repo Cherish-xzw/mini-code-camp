@@ -2,7 +2,8 @@ function HomeController() {}
 
 HomeController.prototype.index = function (req, res) {
   res.render('index', {
-    message: 'This message is from express-handlebars',
+    title: '首页',
+    message: '开始你的第一个Hello World吧！',
   });
 };
 
