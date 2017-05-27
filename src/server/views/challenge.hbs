@@ -31,17 +31,6 @@
                     </button>
                     <div class="button-spacer"></div>
                     <div class="button-spacer"></div>
-                    {{#if challenge.challengeType}}
-                    <div class="output-view">
-                        <textarea id="output" autofocus=""  name="output" style="display: none;">
-                            /**
-                                * Your output will go here.
-                                * Any console.log() statements
-                                * will appear in here as well.
-                            */
-                        </textarea>
-                    </div>
-                    {{/if}}
                     <div class="button-spacer"></div>
                     <div id="testSuite">
                         {{#each tests }}
@@ -97,6 +86,23 @@
 
     </div>
 </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="result">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">恭喜</h4>
+      </div>
+      <div class="modal-body text-center">
+        <h1>恭喜你挑战成功！</h1>
+      </div>
+      <div class="modal-footer">
+        <a  class="btn btn-default" href="/course">好的，我知道了</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script src="//cdn.bootcss.com/jshint/2.9.4/jshint.min.js"></script>
 <script src="//cdn.bootcss.com/chai/4.0.0-canary.1/chai.min.js"></script>
